@@ -1,0 +1,70 @@
+services:
+  app:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: law_firm_app
+    restart: unless-stopped
+    working_dir: /var/www/html
+    volumes:
+      - ./:/var/www/html
+    environment:
+      - APP_NAME="LexVanguard Legal Partners"
+      - APP_ENV=local
+      - APP_KEY=base64:33N0vQW0Zp9L9jYV7oP2eE4u7jQ1rS8tY0uV2wX4yZ0=
+      - APP_DEBUG=true
+      - APP_URL=http://localhost:8080
+      - LOG_CHANNEL=stack
+      - DB_CONNECTION=mariadb
+      - DB_HOST=db
+      - DB_PORT=3306
+      - DB_DATABASE=law_firm_db
+      - DB_USERNAME=law_firm_user
+      - DB_PASSWORD=secret_password
+      - CACHE_STORE=database
+      - SESSION_DRIVER=database
+      - QUEUE_CONNECTION=database
+    depends_on:
+      db:
+        condition: service_healthy
+
+  web:
+    image: nginx:alpine
+    container_name: law_firm_web
+    restart: unless-stopped
+    ports:
+      - "8080:80"
+    volumes:
+      - ./:/var/www/html
+      - ./docker/nginx.conf:/etc/nginx/conf.d/default.conf:ro
+    depends_on:
+      - app
+
+  db:
+    image: mariadb:11
+    container_name: law_firm_db
+    restart: unless-stopped
+    environment:
+      MYSQL_DATABASE: law_firm_db
+      MYSQL_USER: law_firm_user
+      MYSQL_PASSWORD: secret_password
+      MYSQL_ROOT_PASSWORD: root_secret_password
+    ports:
+      - "3307:3306"
+    volumes:
+      - db_data:/var/lib/mysql
+    healthcheck:
+      test: ["CMD", "healthcheck.sh", "--connect", "--innodb_initialized"]
+      interval: 5s
+      timeout: 5s
+      retries: 10
+
+  redis:
+    image: redis:alpine
+    container_name: law_firm_redis
+    restart: unless-stopped
+    ports:
+      - "6380:6379"
+
+volumes:
+  db_data:

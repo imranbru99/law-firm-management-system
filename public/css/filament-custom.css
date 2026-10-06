@@ -1,0 +1,177 @@
+/* ==========================================================================
+   LexVanguard 2027 AI Law OS — Ultra-Premium Bespoke Stylesheet
+   Obsidian & Warm Gold Editorial Palette for High-Stakes Jurisprudence
+   ========================================================================== */
+
+@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Cinzel:wght@600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap');
+
+:root {
+    --lex-font-primary: 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
+    --lex-font-serif: 'Cinzel', serif;
+    --lex-font-mono: 'JetBrains Mono', monospace;
+    --lex-gold-primary: #d97706;
+    --lex-gold-light: #fbbf24;
+    --lex-gold-glow: rgba(245, 158, 11, 0.18);
+    --lex-obsidian-bg: #090d16;
+    --lex-card-bg: rgba(15, 23, 42, 0.85);
+    --lex-border-subtle: rgba(255, 255, 255, 0.08);
+}
+
+body {
+    font-family: var(--lex-font-primary) !important;
+    letter-spacing: -0.01em;
+}
+
+/* Luxury Dark Mode Elevation */
+.dark {
+    background-color: var(--lex-obsidian-bg) !important;
+}
+
+.dark .fi-topbar {
+    background: rgba(9, 13, 22, 0.85) !important;
+    backdrop-filter: blur(16px) saturate(180%) !important;
+    border-bottom: 1px solid rgba(245, 158, 11, 0.12) !important;
+}
+
+.dark .fi-sidebar {
+    background: rgba(11, 17, 30, 0.95) !important;
+    border-right: 1px solid rgba(245, 158, 11, 0.1) !important;
+}
+
+/* Sidebar Brand Header Glow */
+.fi-sidebar-header {
+    border-bottom: 1px solid rgba(245, 158, 11, 0.15) !important;
+    padding-top: 1.25rem !important;
+    padding-bottom: 1.25rem !important;
+}
+
+.fi-sidebar-header a span {
+    font-family: var(--lex-font-serif) !important;
+    letter-spacing: 0.05em !important;
+    font-weight: 700 !important;
+    background: linear-gradient(135deg, #ffffff 40%, #fbbf24 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+/* Sidebar Navigation Items */
+.fi-sidebar-item-active .fi-sidebar-item-button {
+    background: linear-gradient(90deg, rgba(217, 119, 6, 0.18) 0%, rgba(217, 119, 6, 0.04) 100%) !important;
+    border-left: 3px solid #f59e0b !important;
+    color: #fbbf24 !important;
+    font-weight: 600 !important;
+    border-radius: 0 0.75rem 0.75rem 0 !important;
+}
+
+.fi-sidebar-item-button:hover {
+    transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* Glassmorphic Widget & Section Cards */
+.dark .fi-section,
+.dark .fi-ta-ctn,
+.dark .fi-wi-stats-overview-stat {
+    background: var(--lex-card-bg) !important;
+    backdrop-filter: blur(12px) !important;
+    border: 1px solid rgba(255, 255, 255, 0.07) !important;
+    border-radius: 1rem !important;
+    box-shadow: 0 10px 30px -10px rgba(0, 0, 0, 0.5) !important;
+    transition: border-color 0.25s ease, box-shadow 0.25s ease;
+}
+
+.dark .fi-section:hover,
+.dark .fi-wi-stats-overview-stat:hover {
+    border-color: rgba(245, 158, 11, 0.3) !important;
+    box-shadow: 0 12px 35px -8px rgba(245, 158, 11, 0.12) !important;
+}
+
+/* Stat Overview Cards Glow */
+.fi-wi-stats-overview-stat {
+    position: relative;
+    overflow: hidden;
+}
+
+.fi-wi-stats-overview-stat::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 60px;
+    height: 60px;
+    background: radial-gradient(circle, rgba(245, 158, 11, 0.15) 0%, transparent 70%);
+    pointer-events: none;
+}
+
+/* Polished Table Styling */
+.dark .fi-ta-table {
+    border-collapse: separate !important;
+    border-spacing: 0 !important;
+}
+
+.dark .fi-ta-row:hover {
+    background-color: rgba(245, 158, 11, 0.035) !important;
+}
+
+.dark .fi-ta-header-cell {
+    font-size: 0.72rem !important;
+    text-transform: uppercase !important;
+    letter-spacing: 0.08em !important;
+    font-weight: 700 !important;
+    color: #94a3b8 !important;
+    background: rgba(15, 23, 42, 0.6) !important;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.08) !important;
+}
+
+/* Badges & Pills */
+.fi-badge {
+    border-radius: 9999px !important;
+    font-weight: 600 !important;
+    letter-spacing: 0.02em !important;
+    font-size: 0.72rem !important;
+    padding: 0.2rem 0.65rem !important;
+    border: 1px solid currentColor !important;
+}
+
+/* Buttons */
+.fi-btn-primary {
+    background: linear-gradient(135deg, #d97706 0%, #b45309 100%) !important;
+    box-shadow: 0 4px 14px rgba(217, 119, 6, 0.35) !important;
+    transition: all 0.2s ease !important;
+    border-radius: 0.75rem !important;
+}
+
+.fi-btn-primary:hover {
+    background: linear-gradient(135deg, #f59e0b 0%, #d97706 100%) !important;
+    box-shadow: 0 6px 20px rgba(245, 158, 11, 0.45) !important;
+    transform: translateY(-1px);
+}
+
+/* Custom Sleek Scrollbar */
+::-webkit-scrollbar {
+    width: 6px;
+    height: 6px;
+}
+
+::-webkit-scrollbar-track {
+    background: rgba(9, 13, 22, 0.6);
+}
+
+::-webkit-scrollbar-thumb {
+    background: rgba(245, 158, 11, 0.3);
+    border-radius: 3px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: rgba(245, 158, 11, 0.6);
+}
+
+/* Demo Credentials Quick Switcher Banner */
+.lex-demo-role-pill {
+    transition: all 0.2s ease;
+    cursor: pointer;
+}
+
+.lex-demo-role-pill:hover {
+    transform: translateY(-1px);
+    box-shadow: 0 4px 12px rgba(245, 158, 11, 0.25);
+}
